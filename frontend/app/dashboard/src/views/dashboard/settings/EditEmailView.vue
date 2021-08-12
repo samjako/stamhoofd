@@ -44,7 +44,17 @@
                     Algemene e-mails
                 </STListItem>
             </STList>
+            
+            <div v-if="enableWebshopModule" class="container">
+                <p class="st-list-description">Selecteer de webshops die standaard met dit e-mailadres moeten versturen.</p>
 
+                <STList>
+                    <STListItem element-name="label" :selectable="true" v-for="webshop in webshops" :key="webshop.id">
+                        <Checkbox slot="left" v-model="group.selected"/>
+                        {{ group.group.settings.name }}
+                    </STListItem>
+                </STList>
+            </div>
         </main>
 
         <STToolbar>
